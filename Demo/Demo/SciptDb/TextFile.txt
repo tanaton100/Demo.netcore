@@ -1,0 +1,27 @@
+﻿use Demo
+CREATE TABLE Orders (
+    Id int NOT NULL  IDENTITY(1,1) PRIMARY KEY,
+	ProductId int not null ,
+	UserId int not null
+);
+go
+
+
+use Demo
+CREATE TABLE Products (
+    Id int NOT NULL  IDENTITY(1,1) PRIMARY KEY,
+	Name nvarchar ,
+	Price decimal
+);
+go
+
+
+CREATE TABLE Users (
+    Id int NOT NULL  IDENTITY(1,1) PRIMARY KEY,
+    UserName nvarchar Not Null ,
+    LastName nvarchar(255) NOT NULL,
+    FirstName nvarchar(255) Not Null,
+	Email nvarchar(255) Not Null,
+	Tel nvarchar(255),
+	[Password]  nvarchar(255),
+);
