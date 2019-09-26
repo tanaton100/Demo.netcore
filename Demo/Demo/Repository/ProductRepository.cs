@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Dapper;
 using Demo.Models;
 using Microsoft.Extensions.Configuration;
@@ -56,7 +53,6 @@ namespace Demo.Repository
             const string sqlCommand = @"INSERT INTO [Products] ([Name],[Price]) VALUES (@Name,@Price)SELECT CAST(SCOPE_IDENTITY() as int)";
             return DbConnection.ExecuteScalar<int>(sqlCommand, new
             {
-                tModel.Id,
                 tModel.Name,
                 tModel.Price
             });

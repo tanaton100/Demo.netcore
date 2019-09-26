@@ -10,7 +10,7 @@ go
 use Demo
 CREATE TABLE Products (
     Id int NOT NULL  IDENTITY(1,1) PRIMARY KEY,
-	Name nvarchar ,
+	Name nvarchar(255) ,
 	Price decimal
 );
 go
@@ -18,7 +18,7 @@ go
 
 CREATE TABLE Users (
     Id int NOT NULL  IDENTITY(1,1) PRIMARY KEY,
-    UserName nvarchar Not Null ,
+    UserName nvarchar (255)Not Null ,
     LastName nvarchar(255) NOT NULL,
     FirstName nvarchar(255) Not Null,
 	Email nvarchar(255) Not Null,
