@@ -1,10 +1,13 @@
-﻿using Demo.Models;
+﻿using System.Net;
+using Demo.Models;
 using Demo.Models.InputModel;
 using Demo.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Demo.Controllers
 {
+    [Authorize]
     [Route("api/User")]
     [Produces("application/json")]
     public class UserController : Controller

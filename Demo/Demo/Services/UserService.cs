@@ -18,6 +18,7 @@ namespace Demo.Services
         bool DeleteUserById(int id);
         string Login(string userName, string pass);
         string ChangePass(string pass, int id);
+        Users Authen(string userName, string pass);
     }
 
     public class UserService : IUserService
@@ -35,6 +36,14 @@ namespace Demo.Services
             var passEn = GetHash(pass);
             var user = _userRepository.Login(userName, passEn);
             return user.Id>0 ? "Suscess" : "Fail";
+        }
+
+        public Users Authen(string userName, string pass)
+        {
+
+            var passEn = GetHash(pass);
+            var user = _userRepository.Login(userName, passEn);
+            return user;
         }
 
         public string ChangePass(string pass ,int id)
