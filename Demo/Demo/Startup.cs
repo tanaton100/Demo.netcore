@@ -1,8 +1,8 @@
 ﻿using System;
-using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Demo.Commons.Swaggers;
 using Demo.Repository;
 using Demo.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -38,7 +38,7 @@ namespace Demo
 
             // JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); // => remove default claims
 
-
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services
                 .AddAuthentication(options =>
                 {
@@ -64,9 +64,8 @@ namespace Demo
                     };
                 });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
-            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Info { Title = "Demo", Version = "v1" }); });
+          
+            services.AddSwaggerDocumentation();
 
             var builder = new ContainerBuilder();
 
@@ -99,9 +98,7 @@ namespace Demo
                 app.UseHsts();
             }
             app.UseAuthentication();
-            app.UseSwagger();
-            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Demo"); });
-
+            app.UseSwaggerDocumentation();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
