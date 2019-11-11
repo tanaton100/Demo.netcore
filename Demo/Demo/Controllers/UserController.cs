@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Demo.Controllers
 {
-    [Authorize]
+    
     [Route("api/User")]
     [Produces("application/json")]
     public class UserController : Controller

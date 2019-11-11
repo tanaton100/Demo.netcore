@@ -18,7 +18,7 @@ namespace Demo.Controllers
         }
         [HttpGet]
         [Route("")]
-        public IActionResult GetUser()
+        public IActionResult GetProduct()
         {
             var result = _productService.GetAll();
             return Ok(result);
